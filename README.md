@@ -1,6 +1,7 @@
 # OpenTask
 
 [![Build status](https://github.com/SpringHgui/OpenTask/workflows/build/badge.svg)](https://github.com/SpringHgui/OpenTask/actions)
+[![Nuget](https://img.shields.io/nuget/v/OpenTask.Core)](https://www.nuget.org/packages/OpenTask.Core/)
 
 去中心设计的分布式任务调度平台
 
