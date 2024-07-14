@@ -65,5 +65,17 @@ docker run -e MYSQL_DATABASE=open_task -e MYSQL_ROOT_PASSWORD=OPEN_TASK_!@# -p 3
 2. 安装vs2022
 打开`OpenTask.sln`解决方案进行开发
 
+3. 运行 `OpenTask.WebApi` 后端
+
+3. 切到 `ui/vite-opentask` 运行前端项目
+
+需要安装`node20`
+```
+npm i
+npm run dev
+```
+
+默认用户名密码 admin/OpenTask
+
 # 开源协议
 MIT
