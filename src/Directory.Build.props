@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<Version>0.1.0</Version>
+		<Description>OpenTask 去中心化分布式任务调度平台</Description>
+		<LangVersion>preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<PackageProjectUrl>https://github.com/SpringHgui/OpenTask</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/SpringHgui/OpenTask</RepositoryUrl>
+	</PropertyGroup>
+</Project>

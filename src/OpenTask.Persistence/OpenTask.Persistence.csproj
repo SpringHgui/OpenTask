@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Issues\**" />
+    <EmbeddedResource Remove="Issues\**" />
+    <None Remove="Issues\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="QingZhouDbConnection.cs" />
+    <Compile Remove="Repositorys\OrganizationRepository.cs" />
+    <Compile Remove="Repositorys\ProjectRepository.cs" />
+    <Compile Remove="Repositorys\TodoItemRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="xxl-job.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <!--<PackageReference Include="DapperExtensions" Version="1.7.0" />-->
+    <PackageReference Include="Dommel" Version="3.3.1" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="NullFX.CRC" Version="1.1.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenTask.Domain\OpenTask.Domain.csproj" />
+    <ProjectReference Include="..\OpenTask.Utility\OpenTask.Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entitys\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

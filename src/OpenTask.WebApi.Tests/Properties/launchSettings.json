@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "OpenTask.WebApi.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54644;http://localhost:54645"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Exceptions\**" />
+	  <Compile Remove="Organization\**" />
+	  <Compile Remove="Projects\**" />
+	  <Compile Remove="TodoItems\**" />
+	  <EmbeddedResource Remove="Exceptions\**" />
+	  <EmbeddedResource Remove="Organization\**" />
+	  <EmbeddedResource Remove="Projects\**" />
+	  <EmbeddedResource Remove="TodoItems\**" />
+	  <None Remove="Exceptions\**" />
+	  <None Remove="Organization\**" />
+	  <None Remove="Projects\**" />
+	  <None Remove="TodoItems\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="TimeCrontab" Version="3.4.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\OpenTask.Utility\OpenTask.Utility.csproj" />
+	</ItemGroup>
+
+</Project>

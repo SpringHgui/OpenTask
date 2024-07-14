@@ -1,0 +1,31 @@
+name: publish docker
+
+on:
+  push:
+    tags:
+      - v*
+jobs:
+
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        docker login --username=springhgui0127 registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.PASSWORD }}
+        version=$(grep "<Version>" src/Directory.Build.props | awk -F'[<>]' '{print $3}')
+        echo $version
+        appName=registry.cn-hangzhou.aliyuncs.com/hgui/opentask
+        tag=$appName:$version-$(date +%s)
+        latestTag=$appName:latest
+        echo $tag
+        docker build . --file Dockerfile --tag $tag
+        docker push $tag
+        docker tag $tag $latestTag
+        docker push $latestTag
+
+
+
+      

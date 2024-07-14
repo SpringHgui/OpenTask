@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* jotai插件位置调整，防止开发期间挡住重要ui */
+.jotai-devtools-trigger-button {
+  left: 80px !important;
+}
+
+.layout-sider-menu::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Issue\**" />
+		<Compile Remove="Members\**" />
+		<Compile Remove="Orgs\**" />
+		<Compile Remove="Projects\**" />
+		<Compile Remove="Todos\**" />
+		<EmbeddedResource Remove="Issue\**" />
+		<EmbeddedResource Remove="Members\**" />
+		<EmbeddedResource Remove="Orgs\**" />
+		<EmbeddedResource Remove="Projects\**" />
+		<EmbeddedResource Remove="Todos\**" />
+		<None Remove="Issue\**" />
+		<None Remove="Members\**" />
+		<None Remove="Orgs\**" />
+		<None Remove="Projects\**" />
+		<None Remove="Todos\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="WheelTimer" Version="1.0.0" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="MediatR" Version="12.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\OpenTask.Core\OpenTask.Core.csproj" />
+		<ProjectReference Include="..\OpenTask.Domain\OpenTask.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Core\Handlers\" />
+	</ItemGroup>
+
+</Project>

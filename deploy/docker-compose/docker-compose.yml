@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  mysql:
+    restart: always
+    image: registry.cn-hangzhou.aliyuncs.com/hgui/mysql:8.4.1
+    container_name: mysql
+    volumes:
+      - /apps/mysql/mysql:/var/lib/mysql
+      - /apps/mysql/conf.d:/etc/mysql/conf.d
+    environment:
+      - "MYSQL_ROOT_PASSWORD=OPEN_TASK_!@#"
+      - "MYSQL_DATABASE=open_task"
+    ports:
+      - 3306:3306
+  
+  api:
+    restart: always
+    image: registry.cn-hangzhou.aliyuncs.com/hgui/opentask:latest
+    container_name: opentask
+    depends_on:
+      - mysql
+    volumes:
+      - /apps/opentask/logs:/app/Logs
+    environment:
+      - "ConnectionStrings__Core=server=mysql;Port=3306;user id=root;database=open_task;pooling=true;password=OPEN_TASK_!@#"
+      - "TZ=Asia/Shanghai"
+    ports:
+      - 8080:8080
+    links:
+      - mysql
