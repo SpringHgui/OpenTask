@@ -21,7 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solut
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		..\deploy\docker-compose\docker-compose.yml = ..\deploy\docker-compose\docker-compose.yml
-		..\.github\workflows\docker-image.yml = ..\.github\workflows\docker-image.yml
 		..\Dockerfile = ..\Dockerfile
 		..\publish.sh = ..\publish.sh
 		..\README.md = ..\README.md

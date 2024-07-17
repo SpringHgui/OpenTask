@@ -39,6 +39,7 @@ WORKDIR /app
 ENV TZ=Asia/Shanghai
 
 RUN chmod 777 /app
+RUN chmod 777 /app/logs
 COPY --from=publish /app/publish .
 COPY --from=ui /app/dist ./wwwroot
 ENTRYPOINT ["dotnet", "OpenTask.WebApi.dll"]
