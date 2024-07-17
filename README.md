@@ -76,6 +76,10 @@ host.Run();
 }
 ```
 ### java
+## 3. 管理后台查看
+
+登录后台 localhost:8080
+默认账号密码:  admin/OpenTask
 
 ### 其他语言开发
 
