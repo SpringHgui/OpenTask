@@ -33,7 +33,7 @@ export function TaskInfos() {
           "Loading..."
         ) : error instanceof Error ? (
           error.message
-        ) : (
+        ) : (!data!.success ? data?.message :
           <DataTable
             toolbar={DataTableToolbar}
             columnFilters={columnFilters}

@@ -28,9 +28,9 @@ export function TaskLogs() {
       return new TaskLogApi(config).listLogs({
         pageNumber: pagination.pageIndex + 1,
         pageSize: pagination.pageSize,
-        taskId: globalFilters.taskId,
-        startTime: globalFilters.startTime,
-        endTime: globalFilters.endTime,
+        taskId: globalFilters?.taskId,
+        startTime: globalFilters?.startTime,
+        endTime: globalFilters?.endTime,
       });
     },
     placeholderData: keepPreviousData,
@@ -42,8 +42,8 @@ export function TaskLogs() {
         {status === "pending"
           ? "Loading..."
           : error instanceof Error
-          ? error.message
-          : data!.result!.rows! && (
+            ? error.message
+            : (!data!.success ? data?.message : (
               <DataTable
                 globalFilters={globalFilters}
                 setGlobalFilters={setGlobalFilters}
@@ -56,7 +56,7 @@ export function TaskLogs() {
                 total={parseInt(data!.result!.count!)}
                 columns={columns}
               />
-            )}
+            ))}
       </div>
     </>
   );

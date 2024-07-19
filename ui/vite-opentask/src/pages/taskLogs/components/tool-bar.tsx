@@ -20,9 +20,9 @@ import { queryClient } from "@/apis";
 export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0;
+  const isFiltered = table.getState().globalFilter?.taskId;
   const [taskID, setTaskId] = useState(
-    (table.getColumn("taskId")?.getFilterValue() as string) ?? ""
+    (table.getState().globalFilter?.taskId as string) ?? ""
   );
 
   const [date, setDate] = useState<DateRange | undefined>({
@@ -34,17 +34,19 @@ export function DataTableToolbar<TData>({
     event.preventDefault();
 
     queryClient.invalidateQueries({ queryKey: ["listLogs"] });
+    table.setPageIndex(0);
 
     const filters: ListLogsRequest = {
       taskId: taskID,
       startTime: date?.from,
       endTime: date?.to,
     };
+
     table.setGlobalFilter(filters);
   };
 
   const reset = () => {
-    table.resetColumnFilters();
+    table.resetGlobalFilter();
     setTaskId("");
   };
   return (

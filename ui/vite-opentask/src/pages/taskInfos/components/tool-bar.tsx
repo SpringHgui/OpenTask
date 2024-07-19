@@ -19,6 +19,8 @@ export function DataTableToolbar<TData>({
     event.preventDefault();
 
     queryClient.invalidateQueries({ queryKey: ["listTaskInfos"] });
+    table.setPageIndex(0);
+
     const formData = new FormData(event.currentTarget);
     table.getColumn("name")?.setFilterValue(formData.get("name"));
   };
