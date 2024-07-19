@@ -9,6 +9,12 @@
 
 调度中心自动进行任务分片，以平均每个调度节点的负载。
 
+## 体验地址
+
+http://opentask.run/  
+账号：admin  
+密码：OpenTask  
+
 ## 仓库地址
 
 [Github](https://github.com/SpringHgui/OpenTask)
