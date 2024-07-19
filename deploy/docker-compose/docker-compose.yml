@@ -1,14 +1,13 @@
-version: '4.9'
 services:
-  mysql:
+  opentask-mysql:
     restart: always
     image: registry.cn-hangzhou.aliyuncs.com/hgui/mysql:8.4.1
-    container_name: mysql
+    container_name: opentask-mysql
     volumes:
       - /apps/mysql/mysql:/var/lib/mysql
       - /apps/mysql/conf.d:/etc/mysql/conf.d
     environment:
-      - "MYSQL_ROOT_PASSWORD=OPEN_TASK_!@#"
+      - "MYSQL_ROOT_PASSWORD=OPEN_TASK_123"  # 请修改此处的密码
       - "MYSQL_DATABASE=open_task"
     ports:
       - 3306:3306
@@ -18,19 +17,31 @@ services:
       timeout: 2s
       retries: 10
 
-  api:
+  opentask-api:
     restart: always
     image: registry.cn-hangzhou.aliyuncs.com/hgui/opentask:latest
-    container_name: opentask
+    container_name: opentask-api
     depends_on:
-      mysql:
+      opentask-mysql:
         condition: service_healthy
     volumes:
       - /apps/opentask/logs:/app/logs
     environment:
-      - "ConnectionStrings__Core=server=mysql;Port=3306;user id=root;database=open_task;pooling=true;password=OPEN_TASK_!@#"
+      - "ConnectionStrings__Core=server=opentask-mysql;Port=3306;user id=root;database=open_task;pooling=true;password=OPEN_TASK_123" # 请修改此处的密码
       - "TZ=Asia/Shanghai"
     ports:
       - 8080:8080
     links:
-      - mysql
+      - opentask-mysql
+        
+  opentask-nginx:
+    restart: always
+    image: registry.cn-hangzhou.aliyuncs.com/hgui/nginx:1.26.1
+    container_name: opentask-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    links:
+      - opentask-api
+     
