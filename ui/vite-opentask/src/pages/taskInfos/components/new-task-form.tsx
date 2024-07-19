@@ -40,6 +40,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { PlusCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { queryClient } from "@/apis";
 
 const steps = [
   { label: "基本信息", description: "基本信息" },
@@ -120,10 +121,11 @@ export const NewTaskForm = () => {
       }
 
       toast.success("创建成功");
+      queryClient.invalidateQueries({ queryKey: ["listTaskInfos"] });
       setOpen(false);
     },
     onError: (error) => {
-      console.log(error);
+      console.error(error);
       toast.error(error.message);
     },
     onSettled: () => {

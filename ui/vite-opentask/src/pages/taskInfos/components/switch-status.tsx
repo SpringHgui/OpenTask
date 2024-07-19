@@ -35,7 +35,7 @@ export const SwitchEnable = ({
       queryClient.invalidateQueries({ queryKey: ["listTaskInfos"] });
     },
     onError: (error) => {
-      console.log(error);
+      console.error(error);
       toast.error(error.message);
     },
     onSettled: () => {},

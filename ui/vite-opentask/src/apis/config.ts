@@ -2,7 +2,6 @@ import { Configuration } from "@/apis-gen";
 const config = new Configuration({
   basePath: import.meta.env.VITE_API_URL || location.origin,
   accessToken: (name, scopes) => {
-    console.log(name);
     return (
       localStorage.getItem("token")?.replace('"', "").replace('"', "") ?? ""
     );
@@ -15,7 +14,7 @@ const config = new Configuration({
           localStorage.getItem("token")?.replace('"', "").replace('"', "") ??
           "";
 
-        console.log("headers", context.init.headers);
+        // console.log("headers", context.init.headers);
         return new Promise((resolve, reject) => {
           context.init.headers = {
             ...context.init.headers,
@@ -26,7 +25,7 @@ const config = new Configuration({
       },
       post(context) {
         return new Promise((resolve, reject) => {
-          console.log("post", context);
+          // console.log("post", context);
           if (context.response.status == 200) {
             resolve();
           }

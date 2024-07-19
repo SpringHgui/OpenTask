@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { NewTaskForm } from "./new-task-form";
+import { queryClient } from "@/apis";
 
 export function DataTableToolbar<TData>({
   table,
@@ -16,8 +17,8 @@ export function DataTableToolbar<TData>({
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("ssss");
 
+    queryClient.invalidateQueries({ queryKey: ["listTaskInfos"] });
     const formData = new FormData(event.currentTarget);
     table.getColumn("name")?.setFilterValue(formData.get("name"));
   };

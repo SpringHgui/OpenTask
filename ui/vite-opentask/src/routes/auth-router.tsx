@@ -12,7 +12,7 @@ function Route(props: { children: ReactElement<any, any> }) {
 	const [currentUser] = useAtom(currentUserAtom);
 
 	const route = searchRouteV2(matches, allRoutes);
-	console.log("[Auth]", pathname, route, matches);
+	// console.log("[Auth]", pathname, route, matches);
 
 	if (route == undefined) {
 		// 没有找到默认走权限

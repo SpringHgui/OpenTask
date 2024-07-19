@@ -15,6 +15,7 @@ import { useState } from "react";
 import { DateRange } from "react-day-picker";
 import { da, zhCN } from "date-fns/locale";
 import { ListLogsRequest } from "@/apis-gen";
+import { queryClient } from "@/apis";
 
 export function DataTableToolbar<TData>({
   table,
@@ -31,7 +32,9 @@ export function DataTableToolbar<TData>({
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const formData = new FormData(event.currentTarget);
+
+    queryClient.invalidateQueries({ queryKey: ["listLogs"] });
+
     const filters: ListLogsRequest = {
       taskId: taskID,
       startTime: date?.from,

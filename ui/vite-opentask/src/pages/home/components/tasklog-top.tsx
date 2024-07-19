@@ -29,7 +29,7 @@ export const TaskLogTop = () => {
       <CardContent className="grid gap-8">
         {data?.result?.data?.map((x) => {
           return (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" key={x.taskId}>
               {/* <Avatar className="hidden h-9 w-9 sm:flex">
                 <AvatarImage src="/avatars/01.png" alt="Avatar" />
                 <AvatarFallback>OM</AvatarFallback>

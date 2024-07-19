@@ -42,7 +42,7 @@ export function SidebarNav({
   ...props
 }: SidebarNavProps) {
   const { pathname } = useLocation();
-  console.log(pathname, "pathname");
+  // console.log(pathname, "pathname");
   const [minimized, setCounter] = useAtom(isMinimized);
 
   return (

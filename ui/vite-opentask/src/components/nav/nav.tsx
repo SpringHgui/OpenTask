@@ -25,7 +25,7 @@ export interface NavProps {
 
 export function Nav({ links, isCollapsed }: NavProps) {
   const { pathname } = useLocation()
-  console.log("Nav", pathname);
+  // console.log("Nav", pathname);
   let actives = links.filter(x => x.to).filter(x => pathname.endsWith(x.to!))
   let active: LinkInfo | undefined = undefined;
   if (actives.length > 0) {

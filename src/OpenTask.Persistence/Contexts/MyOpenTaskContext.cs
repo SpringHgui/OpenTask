@@ -14,7 +14,7 @@ public partial class OpenTaskContext : DbContext
 {
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder)
     {
-        _ = modelBuilder.Entity<OtUser>()
+        modelBuilder.Entity<OtUser>()
             .HasData(new OtUser
             {
                 Id = 1,
@@ -22,6 +22,27 @@ public partial class OpenTaskContext : DbContext
                 Password = Md5Helper.MD5Encrypt64("OpenTask"),
                 CreatedAt = DateTime.Now
             });
+
+        modelBuilder.Entity<OtTaskInfo>().HasData(new OtTaskInfo
+        {
+            Id = 1,
+            AlarmConf = string.Empty,
+            AlarmType = "none",
+            Appid = "default",
+            AttemptInterval = 5,
+            AttemptMax = 3,
+            Description = "一个示例作业",
+            Enabled = true,
+            HandleParams = "这是执行参数",
+            Handler = "DemoJobHandler",
+            Name = "示例作业",
+            ScheduleMode = "alone",
+            Slot = 1,
+            TimeConf = "0/30 * * * * ?",
+            TimeType = "cron",
+            TriggerLastTime = 0,
+            TriggerNextTime = 0,
+        });
     }
 }
 

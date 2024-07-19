@@ -38,7 +38,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       });
     },
     onSuccess: (data) => {
-      console.log("登录成功", data);
       if (!data.success) {
         toast.error(data.message);
         return;
@@ -54,8 +53,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       navigate(`/`, { replace: true });
     },
     onError: (error) => {
-      console.log(error);
-
+      console.error(error);
       toast.error(error.message);
     },
     onSettled: () => {
