@@ -39,7 +39,7 @@ const Sidear = memo(() => {
 
     return (
         <aside className="border-r hidden md:block"  >
-            <div className='h-full ' style={{ overflow: 'hidden auto' }}>
+            <div className='h-full '>
                 <nav
                     className={cn(
                         `relative h-screen`,
