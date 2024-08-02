@@ -9,6 +9,10 @@
 
 调度中心自动进行任务分片，以平均每个调度节点的负载。
 
+## 详细文档
+
+https://docs.opentask.run
+
 ## 体验地址
 
 http://opentask.run/  
