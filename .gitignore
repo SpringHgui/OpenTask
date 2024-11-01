@@ -2,3 +2,4 @@
 obj
 bin
 logs
+/src/OpenTask.WebApi/appsettings.Development.json
