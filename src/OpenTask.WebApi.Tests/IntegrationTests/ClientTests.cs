@@ -13,17 +13,17 @@ namespace OpenTask.WebApi.Tests.IntegrationTests;
 public class ClientTests
     : IClassFixture<CustomWebApplicationFactory<Program>>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    private readonly CustomWebApplicationFactory<Program> _factory;
     private readonly HttpClient client;
 
-    public ClientTests(WebApplicationFactory<Program> factory)
+    public ClientTests(CustomWebApplicationFactory<Program> factory)
     {
         _factory = factory;
         client = _factory.CreateClient();
     }
 
     [Theory]
-    [InlineData("/api/Client/ListClients")]
+    [InlineData("/api/Client/ListClients")] 
     public async Task Get_Clients(string url)
     {
         HttpResponseMessage response = await client.GetAsync(url);

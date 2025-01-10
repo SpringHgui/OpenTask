@@ -22,6 +22,7 @@ namespace OpenTask.WebApi.Controllers
         [HttpPost]
         public async Task<BaseResponse<LoginResponse>> Login(LoginCommand request)
         {
+  
             return await RequestAsync<LoginCommand, LoginResponse>(request);
         }
 
