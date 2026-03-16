@@ -26,7 +26,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="WheelTimer" Version="1.0.0" />
-		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="AutoMapper" Version="15.1.1" />
 		<PackageReference Include="MediatR" Version="12.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
